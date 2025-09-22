@@ -77,6 +77,27 @@
             transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
         }
 
+        /* Shine Hover Effect */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px; /* Width of the shine */
+            height: 100%;
+            background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg) translateX(-200px); /* Start off-screen */
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .shine-effect:hover::before {
+            transform: skewX(-25deg) translateX(400px); /* Move across the element */
+        }
+
+
         @media (min-width: 768px) { /* Tailwind's md breakpoint */
             .hero-desktop-bg {
                 background-image: url('bg-hero1.jpg');
@@ -106,7 +127,7 @@
                     <div class="md:hidden text-center my-10">
                         <img src="mobile-hero.jpg" alt="Mentora Carla Estivalet" class="inline-block w-full max-w-xs h-auto object-cover rounded-3xl shadow-xl aspect-square">
                     </div>
-                    <a href="#pricing" class="inline-block btn-primary font-bold py-4 px-12 rounded-full text-lg reveal" style="transition-delay: 450ms;">
+                    <a href="#pricing" class="mt-12 inline-block btn-primary shine-effect font-bold py-4 px-12 rounded-full text-lg reveal" style="transition-delay: 450ms;">
                         Quero começar agora!
                     </a>
                 </div>
@@ -144,7 +165,7 @@
             <div class="mt-16 text-center max-w-4xl mx-auto reveal">
                  <p class="text-base md:text-lg text-text-muted">Com apenas <span class="font-semibold text-text-dark">3 dias de trabalho por semana</span> e sem precisar de equipe, você pode gerenciar de 10 a 15 clientes sem dor de cabeça, faturando entre <span class="font-semibold text-text-dark">R$13 mil e R$19 mil por mês</span>, no conforto da sua casa e nos seus próprios horários!</p>
                  <p class="mt-4 text-base md:text-lg text-text-muted">O Funil Social Pro foi criado para você ter uma estratégia de captação desses novos clientes de Social Media, que pagam o valor justo pelo seu trabalho, de forma previsível e sem precisar postar todos os dias.</p>
-                 <a href="#pricing" class="mt-10 inline-block btn-primary font-bold py-4 px-12 rounded-full text-lg reveal">
+                 <a href="#pricing" class="mt-10 inline-block btn-primary shine-effect font-bold py-4 px-12 rounded-full text-lg reveal">
                     Quero começar agora!
                 </a>
              </div>
@@ -209,7 +230,7 @@
                      </div>
                 </div>
                  <div class="text-center mt-12">
-                     <a href="#pricing" class="inline-block btn-primary font-bold py-4 px-12 rounded-full text-lg reveal">
+                     <a href="#pricing" class="inline-block btn-primary shine-effect font-bold py-4 px-12 rounded-full text-lg reveal">
                         Quero começar agora!
                     </a>
                 </div>
@@ -273,20 +294,60 @@
     <!-- PRICING SECTION -->
     <section id="pricing" class="py-20 bg-dark text-light" style="background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');">
         <div class="container mx-auto px-6">
-            <div class="bg-surface text-text-dark rounded-3xl max-w-lg mx-auto p-8 md:p-12 shadow-2xl text-center reveal">
+
+            <!-- Desktop Layout -->
+            <div class="hidden lg:grid grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+                <!-- Col 1: Title -->
+                <div class="col-span-4 text-left reveal">
+                    <h2 class="text-3xl xl:text-4xl font-bold leading-tight">Quanto será o<br><span class="whitespace-nowrap">seu <span class="font-serif" style="color: var(--color-primary);">investimento?</span></span></h2>
+                </div>
+                <!-- Col 2: Price Card -->
+                <div class="col-span-4 reveal" style="transition-delay: 150ms;">
+                    <div class="bg-white/5 border border-white/10 text-text-dark rounded-3xl p-8 shadow-2xl text-center">
+                        <div class="my-6 shine-effect inline-block">
+                            <span class="text-7xl md:text-8xl font-bold" style="color: var(--color-primary);">R$47</span>
+                            <span class="text-lg text-light">,00</span>
+                        </div>
+                        <p class="text-base text-gray-400">ou 12x de R$ 8,71</p>
+                        
+                        <a href="#" class="mt-8 w-full inline-block btn-primary shine-effect font-bold py-4 px-10 rounded-full text-xl whitespace-nowrap">
+                            Quero começar agora!
+                        </a>
+                        
+                        <div class="mt-8">
+                            <div class="inline-block text-text-dark font-bold py-2 px-4 rounded-md text-xs whitespace-nowrap transform -rotate-2" style="background-color: #FDE047; color:black">
+                                → GARANTIA INCONDICIONAL DE 7 DIAS
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Col 3: Features List -->
+                <div class="col-span-4 text-left reveal" style="transition-delay: 300ms;">
+                     <div class="space-y-4">
+                        <p class="flex items-center text-lg"><svg class="w-5 h-5 mr-3 flex-shrink-0" style="color: var(--color-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Metodologia Funil Social Pro</p>
+                        <p class="flex items-center text-lg"><svg class="w-5 h-5 mr-3 flex-shrink-0" style="color: var(--color-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Dois Workbooks de execução</p>
+                        <p class="flex items-center text-lg"><svg class="w-5 h-5 mr-3 flex-shrink-0" style="color: var(--color-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Modelo gratuito de CRM</p>
+                        <p class="flex items-center text-lg"><svg class="w-5 h-5 mr-3 flex-shrink-0" style="color: var(--color-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Prompts avanç p/ Comerciais</p>
+                        <p class="flex items-center text-lg"><svg class="w-5 h-5 mr-3 flex-shrink-0" style="color: var(--color-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Módulo Call venda/ Objeções</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Layout -->
+            <div class="lg:hidden bg-surface text-text-dark rounded-3xl max-w-lg mx-auto p-8 md:p-12 shadow-2xl text-center reveal">
                 <h2 class="text-3xl md:text-4xl font-bold">Quanto será o seu investimento?</h2>
-                <div class="my-6">
+                <div class="my-6 shine-effect inline-block">
                     <span class="text-7xl md:text-8xl font-bold" style="color: var(--color-primary);">R$47</span>
                     <span class="text-lg text-text-muted">,00</span>
                 </div>
                 <p class="text-base text-text-muted">ou 12x de R$ 8,71</p>
                 
-                <a href="#" class="mt-8 w-full inline-block btn-primary font-bold py-4 px-10 rounded-full text-xl">
+                <a href="#" class="mt-8 w-full inline-block btn-primary shine-effect font-bold py-4 px-10 rounded-full text-xl whitespace-nowrap">
                     Quero começar agora!
                 </a>
                 
                 <div class="mt-8">
-                    <div class="inline-block text-text-dark font-bold py-2 px-4 rounded-md text-sm transform -rotate-2" style="background-color: #FDE047; color:black">
+                    <div class="inline-block text-text-dark font-bold py-2 px-4 rounded-md text-xs whitespace-nowrap transform -rotate-2" style="background-color: #FDE047; color:black">
                         → GARANTIA INCONDICIONAL DE 7 DIAS
                     </div>
                 </div>
@@ -299,6 +360,7 @@
                     <p class="flex items-center"><svg class="w-5 h-5 mr-3 flex-shrink-0" style="color: var(--color-primary);" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Módulo Call venda/ Objeções</p>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -333,7 +395,7 @@
                     <div class="md:hidden my-10">
                         <img src="carla.jpg" alt="Foto da mentora Carla Estivalet" class="inline-block w-full max-w-xs h-auto object-cover rounded-3xl shadow-xl aspect-square">
                     </div>
-                     <a href="#pricing" class="inline-block btn-primary font-bold py-4 px-12 rounded-full text-lg mt-10">
+                     <a href="#pricing" class="inline-block btn-primary shine-effect font-bold py-4 px-12 rounded-full text-lg mt-10">
                         Quero começar agora!
                     </a>
                 </div>
